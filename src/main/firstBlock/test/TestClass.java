@@ -117,7 +117,7 @@ public class TestClass {
     @Test
     public void testCalcSec9() {
         try {
-            System.out.println("Область эквивалентности №1, x = - 13 * PI / 6");
+            System.out.println("Область эквивалентности №2, x = - 13 * PI / 6");
             Assert.assertTrue(Math.abs(calculator.calculateSex(-13 * Math.PI / 6) -
                     1/Math.cos(-13 * Math.PI / 6)) < EPS);
         } catch (Exception e){
@@ -128,7 +128,7 @@ public class TestClass {
     @Test
     public void testCalcSec10() {
         try {
-            System.out.println("Область эквивалентности №1, x = -5 * PI / 6");
+            System.out.println("Область эквивалентности №2, x = -5 * PI / 6");
             Assert.assertTrue(Math.abs(calculator.calculateSex(0) -
                     1/Math.cos(0)) < EPS);
         } catch (Exception e){
@@ -139,7 +139,7 @@ public class TestClass {
     @Test
     public void testCalcSec11() {
         try {
-            System.out.println("Область эквивалентности №1, x = 10 * PI / 6");
+            System.out.println("Область эквивалентности №2, x = 10 * PI / 6");
             Assert.assertTrue(Math.abs(calculator.calculateSex(10 * Math.PI / 6) -
                     1/Math.cos(10 * Math.PI / 6)) < EPS);
         } catch (Exception e){
@@ -150,7 +150,7 @@ public class TestClass {
     @Test
     public void testCalcSec12() {
         try {
-            System.out.println("Область эквивалентности №1, x = 23 * PI / 6");
+            System.out.println("Область эквивалентности №2, x = 23 * PI / 6");
             Assert.assertTrue(Math.abs(calculator.calculateSex(23 * Math.PI / 6) -
                     1/Math.cos(23 * Math.PI / 6)) < EPS);
         } catch (Exception e){
