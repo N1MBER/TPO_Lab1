@@ -555,6 +555,10 @@ public class RedBlackTree<T extends Comparable<T>> implements IRedBlackTree<T>, 
         return (findNode(o) != _nil);
     }
 
+    public Node find(T o) {
+        return findNode(o);
+    }
+
     /**
      * Поиск узла дерева со значением o.
      * @param o - значение типа {@link Comparable} для поиска в дерева.
@@ -570,6 +574,8 @@ public class RedBlackTree<T extends Comparable<T>> implements IRedBlackTree<T>, 
         }
         return node;
     }
+
+
 
     /**
      * Метод для получения первого(наименьшего) элемента структуры.

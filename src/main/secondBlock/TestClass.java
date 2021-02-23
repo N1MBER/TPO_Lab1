@@ -128,19 +128,50 @@ public class TestClass {
     //Проверка смены вершины
     @Test
     public void test6() {
+        System.out.println("Test 6");
         int nums = 7;
-        int startHead = 1;
-        int endHead = 3;
+        int startHead = 2;
+        int endHead = 4;
         RedBlackTree<Integer> rbt = new RedBlackTree<Integer>();
-        for (int i = 0; i < nums; i++){
+        for (int i = 1; i <= nums; i++){
             rbt.add(i);
         }
         System.out.println("Дерево:\n");
         RedBlackTree.printTree((RedBlackTree<Integer> )rbt);
         Assert.assertTrue(startHead == (Integer) RedBlackTree.getRoot(rbt).getValue());
-        rbt.add(20);
+        rbt.add(8);
         System.out.println("Дерево:\n");
         RedBlackTree.printTree((RedBlackTree<Integer> )rbt);
         Assert.assertTrue(endHead == (Integer) RedBlackTree.getRoot(rbt).getValue());
+    }
+
+    //Проверка цвета
+    @Test
+    public void test7() {
+        int nums = 5;
+        RedBlackTree<Integer> rbt = new RedBlackTree<Integer>();
+        for (int i = 0; i < nums; i++){
+            rbt.add(i);
+        }
+        System.out.println(rbt.find(3).getColor() + " " + RedBlackTree.NodeColor.BLACK);
+        Assert.assertEquals(rbt.find(3).getColor(), RedBlackTree.NodeColor.BLACK);
+        rbt.add(5);
+        System.out.println(rbt.find(3).getColor() + " " + RedBlackTree.NodeColor.RED);
+        Assert.assertEquals(rbt.find(3).getColor(), RedBlackTree.NodeColor.RED);
+    }
+
+    //Проверка цвета
+    @Test
+    public void test8() {
+        int nums = 3;
+        RedBlackTree<Integer> rbt = new RedBlackTree<Integer>();
+        for (int i = 0; i < nums; i++){
+            rbt.add(i);
+        }
+        System.out.println(rbt.find(2).getColor() + " " + RedBlackTree.NodeColor.RED);
+        Assert.assertEquals(rbt.find(2).getColor(), RedBlackTree.NodeColor.RED);
+        rbt.add(3);
+        System.out.println(rbt.find(2).getColor() + " " + RedBlackTree.NodeColor.BLACK);
+        Assert.assertEquals(rbt.find(2).getColor(), RedBlackTree.NodeColor.BLACK);
     }
 }
