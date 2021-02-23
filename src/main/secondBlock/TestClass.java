@@ -8,60 +8,139 @@ import java.util.Iterator;
 
 public class TestClass {
 
+    //Проверка вставки
     @Test
     public void test1() {
-        System.out.println("Test 1");
-        RedBlackTree t = new RedBlackTree( );
-        final int NUMS = 10;
-        String act = "3 1 0 2 5 4 7 6 8 9";
-        StringBuilder rightTest = new StringBuilder();
-        for( int i = 0; i < NUMS; i++ )
-            t.insert( new Integer( i ) );
-        ArrayList list = t.getTree();
-        Iterator iterator = list.iterator();
-        while (iterator.hasNext()){
-            rightTest.append(iterator.next() + " ");
+        int nums = 10;
+        ArrayList<Integer> arr_act = new ArrayList<>();
+        RedBlackTree<Integer> rbt = new RedBlackTree<Integer>();
+        for (int i = 0; i < nums; i++){
+            rbt.add(i);
+            arr_act.add(i);
         }
-        System.out.println("Test: " + rightTest.toString());
-        System.out.println("Actual: " + act);
-        Assert.assertTrue(act.equals(rightTest.toString().trim()));
+        Iterator<Integer> iterator = rbt.iterator();
+        ArrayList<Integer> test_arr = new ArrayList<>();
+        while (iterator.hasNext()){
+            test_arr.add(iterator.next());
+        }
+        System.out.println("Дерево:\n");
+        RedBlackTree.printTree((RedBlackTree<Integer> )rbt);
+        System.out.println("Проверочные данные: " + arr_act);
+        System.out.println("Тестовые данные: " + test_arr);
+        Assert.assertTrue(test_arr.equals(arr_act));
     }
 
+    //Проверка вставки
     @Test
     public void test2() {
-        System.out.println("Test 2");
-        RedBlackTree t = new RedBlackTree( );
-        final int NUMS = 20;
-        String act = "7 3 1 0 2 5 4 6 11 9 8 10 15 13 12 14 17 16 18 19";
-        StringBuilder rightTest = new StringBuilder();
-        for( int i = 0; i < NUMS; i++ )
-            t.insert( new Integer( i ) );
-        ArrayList list = t.getTree();
-        Iterator iterator = list.iterator();
-        while (iterator.hasNext()){
-            rightTest.append(iterator.next() + " ");
+        int nums = 20;
+        ArrayList<Integer> arr_act = new ArrayList<>();
+        RedBlackTree<Integer> rbt = new RedBlackTree<Integer>();
+        for (int i = 0; i < nums; i++){
+            rbt.add(i);
+            arr_act.add(i);
         }
-        System.out.println("Test: " + rightTest.toString());
-        System.out.println("Actual: " + act);
-        Assert.assertTrue(act.equals(rightTest.toString().trim()));
+        Iterator<Integer> iterator = rbt.iterator();
+        ArrayList<Integer> test_arr = new ArrayList<>();
+        while (iterator.hasNext()){
+            test_arr.add(iterator.next());
+        }
+        System.out.println("Дерево:\n");
+        RedBlackTree.printTree((RedBlackTree<Integer> )rbt);
+        System.out.println("Проверочные данные: " + arr_act);
+        System.out.println("Тестовые данные: " + test_arr);
+        Assert.assertTrue(test_arr.equals(arr_act));
     }
 
+    //Проверка удаления
     @Test
     public void test3() {
-        System.out.println("Test 3");
-        RedBlackTree t = new RedBlackTree( );
-        final int NUMS = 30;
-        String act = "7 3 1 0 2 5 4 6 15 11 9 8 10 13 12 14 19 17 16 18 23 21 20 22 25 24 27 26 28 29";
-        StringBuilder rightTest = new StringBuilder();
-        for( int i = 0; i < NUMS; i++ )
-            t.insert( new Integer( i ) );
-        ArrayList list = t.getTree();
-        Iterator iterator = list.iterator();
-        while (iterator.hasNext()){
-            rightTest.append(iterator.next() + " ");
+        int nums = 10;
+        int test_num = 7;
+        ArrayList<Integer> arr_act = new ArrayList<>();
+        RedBlackTree<Integer> rbt = new RedBlackTree<Integer>();
+        for (int i = 0; i < nums; i++){
+            rbt.add(i);
+            if (i != test_num)
+             arr_act.add(i);
         }
-        System.out.println("Test: " + rightTest.toString());
-        System.out.println("Actual: " + act);
-        Assert.assertTrue(act.equals(rightTest.toString().trim()));
+        rbt.remove(7);
+        Iterator<Integer> iterator = rbt.iterator();
+        ArrayList<Integer> test_arr = new ArrayList<>();
+        while (iterator.hasNext()){
+            test_arr.add(iterator.next());
+        }
+        System.out.println("Дерево:\n");
+        RedBlackTree.printTree((RedBlackTree<Integer> )rbt);
+        System.out.println("Проверочные данные: " + arr_act);
+        System.out.println("Тестовые данные: " + test_arr);
+        Assert.assertTrue(test_arr.equals(arr_act));
+    }
+
+    //Проверка удаления
+    @Test
+    public void test4() {
+        int nums = 10;
+        ArrayList<Integer> arr_act = new ArrayList<>();
+        RedBlackTree<Integer> rbt = new RedBlackTree<Integer>();
+        for (int i = 0; i < nums; i++){
+            rbt.add(i);
+            arr_act.add(i);
+        }
+        arr_act.remove(arr_act.indexOf(7));
+        rbt.remove(7);
+        arr_act.remove(arr_act.indexOf(1));
+        rbt.remove(1);
+        arr_act.remove(arr_act.indexOf(4));
+        rbt.remove(4);
+        Iterator<Integer> iterator = rbt.iterator();
+        ArrayList<Integer> test_arr = new ArrayList<>();
+        while (iterator.hasNext()){
+            test_arr.add(iterator.next());
+        }
+        System.out.println("Дерево:\n");
+        RedBlackTree.printTree((RedBlackTree<Integer> )rbt);
+        System.out.println("Проверочные данные: " + arr_act);
+        System.out.println("Тестовые данные: " + test_arr);
+        Assert.assertTrue(test_arr.equals(arr_act));
+    }
+
+
+    //Проверка смены вершины
+    @Test
+    public void test5() {
+        int nums = 17;
+        int startHead = 3;
+        int endHead = 7;
+        RedBlackTree<Integer> rbt = new RedBlackTree<Integer>();
+        for (int i = 0; i < nums; i++){
+            rbt.add(i);
+        }
+        System.out.println("Дерево:\n");
+        RedBlackTree.printTree((RedBlackTree<Integer> )rbt);
+        Assert.assertTrue(startHead == (Integer) RedBlackTree.getRoot(rbt).getValue());
+        rbt.add(20);
+        System.out.println("Дерево:\n");
+        RedBlackTree.printTree((RedBlackTree<Integer> )rbt);
+        Assert.assertTrue(endHead == (Integer) RedBlackTree.getRoot(rbt).getValue());
+    }
+
+    //Проверка смены вершины
+    @Test
+    public void test6() {
+        int nums = 7;
+        int startHead = 1;
+        int endHead = 3;
+        RedBlackTree<Integer> rbt = new RedBlackTree<Integer>();
+        for (int i = 0; i < nums; i++){
+            rbt.add(i);
+        }
+        System.out.println("Дерево:\n");
+        RedBlackTree.printTree((RedBlackTree<Integer> )rbt);
+        Assert.assertTrue(startHead == (Integer) RedBlackTree.getRoot(rbt).getValue());
+        rbt.add(20);
+        System.out.println("Дерево:\n");
+        RedBlackTree.printTree((RedBlackTree<Integer> )rbt);
+        Assert.assertTrue(endHead == (Integer) RedBlackTree.getRoot(rbt).getValue());
     }
 }

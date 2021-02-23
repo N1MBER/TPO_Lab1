@@ -1,6 +1,7 @@
 package main.thirdBlock;
 
 import org.junit.Assert;
+import org.junit.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -46,7 +47,7 @@ public class TestClass {
         this.person.grab(controlElements2);
         Iterator<ControlElements> iterator = this.person.getHoldObjects().iterator();
         while (iterator.hasNext()){
-            Assert.assertTrue(controlElements1.equals(iterator.next()));
+            Assert.assertEquals(controlElements1 ,iterator.next());
         }
     }
 
