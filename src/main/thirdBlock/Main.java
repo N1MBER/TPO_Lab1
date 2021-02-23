@@ -23,7 +23,7 @@ public class Main {
         Ford.grab(element1);
         Ford.grab(element2);
         spaceShip.flyByEngine();
-        Ford.grab(element1);
+        Ford.grab(element2);
         spaceShip.makeArc();
         spaceShip.rotate(180);
         spaceShip.flyTo(rocket.getX(), rocket.getY(), rocket.getZ());

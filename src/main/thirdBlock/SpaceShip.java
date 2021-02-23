@@ -53,7 +53,7 @@ public class SpaceShip extends SpaceObjects{
     }
 
     public void makeArc(){
-        this.flyTo(getX() + 200, getY(), getZ() + 100);
+        this.flyTo(getX() + 200, getY(), getZ() - 100);
         setRotate(120);
         System.out.println("Корабль описал крутую дугу");
     }
